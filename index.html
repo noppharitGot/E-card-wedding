@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Invitation | Laphatrada & Noppharit</title>
+    <!-- ใช้ Tailwind CSS สำหรับการจัดเลย์เอาต์ที่รวดเร็วและสวยงาม -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- เชื่อมต่อฟอนต์ Google Fonts ที่ให้ความรู้สึกหรูหราและอ่านง่าย -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Noto+Sans+Thai:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -31,11 +33,12 @@
             position: relative;
         }
 
-        /* Hero Section - ปรับแต่งตามไฟล์ Bg-Front-Final.png */
+        /* ส่วนหน้าปก (Hero Section) */
         .hero {
             height: 90vh;
+            /* คุณสามารถเปลี่ยน URL รูปภาพด้านล่างเป็นรูปพรีเวดดิ้งของคุณเองได้ */
             background-image: linear-gradient(to bottom, rgba(255,255,255,0) 40%, rgba(255,255,255,1) 95%), 
-                              url('images/wedding/Bg-Front-Final.png');
+                              url('images/wedding/Bg-Front-Final.png?auto=format&fit=crop&q=80');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -46,7 +49,7 @@
             text-align: center;
         }
 
-        /* Animation */
+        /* เอฟเฟกต์การแสดงผลแบบค่อยๆ เลื่อนขึ้น */
         .fade-up {
             animation: fadeUp 1.2s ease-out forwards;
         }
@@ -55,7 +58,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Timeline Styles */
+        /* ตกแต่งเส้น Timeline */
         .timeline-line {
             position: absolute;
             left: 20px;
@@ -65,7 +68,7 @@
             background: #e5e7eb;
         }
 
-        /* Music Toggle Button */
+        /* ปุ่มควบคุมเพลง */
         .music-btn {
             position: fixed;
             bottom: 20px;
@@ -85,7 +88,7 @@
 
     <div class="main-container">
         
-        <!-- ส่วนที่ 1: หน้าปก (อ้างอิงดีไซน์จาก Bg-Front-Final.png) -->
+        <!-- Section 1: หน้าปก (อ้างอิงดีไซน์จากโลโก้และรูปพรีเวดดิ้ง) -->
         <section class="hero relative overflow-hidden">
             <div class="z-10 px-6 fade-up">
                 <div class="mb-2">
@@ -97,10 +100,10 @@
             </div>
         </section>
 
-        <!-- ส่วนที่ 2: ข้อความเชิญและนับถอยหลัง -->
+        <!-- Section 2: ข้อความเชิญและระบบนับถอยหลัง -->
         <section class="px-8 py-12 text-center bg-white">
             <div class="mb-8 flex justify-center">
-                <!-- โลโก้ LN อ้างอิงจาก คุณการ์ตูน-Logo-1.png -->
+                <!-- โลโก้ตัวอักษรย่อ LN -->
                 <div class="w-24 h-24 border border-amber-200 rounded-full flex items-center justify-center p-2">
                     <div class="w-full h-full border border-amber-100 rounded-full flex items-center justify-center">
                         <span class="serif text-4xl text-amber-800 italic">LN</span>
@@ -110,7 +113,7 @@
 
             <h2 class="script text-4xl text-amber-700 mb-4">Save the Date</h2>
             <p class="text-[11px] uppercase tracking-[0.2em] text-gray-400 mb-10 leading-loose">
-                เรามีความยินดีอย่างยิ่งที่จะเรียนเชิญท่าน<br>ร่วมเป็นเกียรติและร[...]
+                เรามีความยินดีอย่างยิ่งที่จะเรียนเชิญท่าน<br>ร่วมเป็นเกียรติและร่วมฉลองในงานมงคลสมรส
             </p>
 
             <div class="space-y-4 mb-12">
@@ -123,7 +126,7 @@
                 <p class="serif text-lg font-bold text-gray-700 tracking-widest uppercase">Sunday 14 June 2026</p>
                 <p class="text-xs text-stone-500 mt-2 font-light">หอประชุม 100 ปี ธัญบุรี (100th Year Thanyaburi Hall)</p>
                 
-                <!-- ระบบนับถอยหลัง -->
+                <!-- ตัวเลข Countdown -->
                 <div id="countdown" class="flex justify-center gap-6 mt-10">
                     <div class="text-center">
                         <span id="days" class="block text-3xl font-bold text-amber-900">00</span>
@@ -145,7 +148,7 @@
             </div>
         </section>
 
-        <!-- ส่วนที่ 3: กำหนดการ (Timeline) -->
+        <!-- Section 3: กำหนดการ (Timeline) -->
         <section class="p-10 bg-[#fcfaf7]">
             <h3 class="serif text-xl text-center mb-12 tracking-[0.4em] text-amber-900 uppercase">Schedule</h3>
             
@@ -173,7 +176,7 @@
                 <div class="relative">
                     <div class="absolute -left-[30px] top-0 w-5 h-5 rounded-full bg-white border-4 border-amber-200"></div>
                     <p class="text-xs font-bold text-amber-800">09.49 น.</p>
-                    <p class="text-sm font-medium text-gray-700">พิธีหลั่งน้���พระพุทธมนต์</p>
+                    <p class="text-sm font-medium text-gray-700">พิธีหลั่งน้ำพระพุทธมนต์</p>
                 </div>
 
                 <div class="relative">
@@ -184,7 +187,7 @@
             </div>
         </section>
 
-        <!-- ส่วนที่ 4: ธีมสีและที่ตั้ง -->
+        <!-- Section 4: ธีมสี (Dress Code) และแผนที่ -->
         <section class="p-10 bg-white text-center border-t border-stone-50">
             <div class="mb-16">
                 <h3 class="serif text-lg mb-8 tracking-widest text-gray-400 uppercase">Dress Code</h3>
@@ -204,10 +207,9 @@
                     ต.ประชาธิปัตย์ อ.ธัญบุรี จ.ปทุมธานี
                 </p>
                 
-                <!-- ปุ่ม Google Maps -->
                 <a href="https://maps.app.goo.gl/YyR9J4" target="_blank" 
                    class="inline-flex items-center gap-3 bg-[#4a3b2b] text-white px-12 py-4 rounded-full text-xs font-bold hover:bg-black transition-all shadow-xl active:scale-95">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a[...]
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                     OPEN IN GOOGLE MAPS
                 </a>
             </div>
@@ -222,16 +224,16 @@
         </footer>
     </div>
 
-    <!-- ปุ่มเปิด-ปิดเพลง (ใส่ลิงก์เพลงตัวอย่างไว้ให้) -->
+    <!-- ปุ่มเปิดเพลง (ใช้เพลงตัวอย่างประกอบการ์ด) -->
     <div class="music-btn" onclick="toggleMusic()">
-        <svg id="music-icon" class="w-6 h-6 text-amber-800" fill="currentColor" viewBox="0 0 20 20"><path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 1.12-3 2.5[...]
+        <svg id="music-icon" class="w-6 h-6 text-amber-800" fill="currentColor" viewBox="0 0 20 20"><path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 1.12-3 2.5S3.343 19 5 19s3-1.12 3-2.5V8.51l9-1.8v6.604A4.369 4.369 0 0016 13c-1.657 0-3 1.12-3 2.5s1.343 2.5 3 2.5 3-1.12 3-2.5V3z"></path></svg>
         <audio id="wedding-music" loop>
             <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
         </audio>
     </div>
 
     <script>
-        // ตั้งค่าวันงานสำหรับการนับถอยหลัง
+        // ระบบตั้งค่าเวลาวันงาน (14 มิ.ย. 2026)
         const targetDate = new Date("June 14, 2026 07:09:00").getTime();
 
         function updateCountdown() {
@@ -253,10 +255,11 @@
             }
         }
 
+        // อัปเดตตัวเลขทุกๆ 1 วินาที
         setInterval(updateCountdown, 1000);
         updateCountdown();
 
-        // ฟังก์ชันควบคุมเสียงเพลง
+        // ระบบควบคุมเพลง (กดเปิด/ปิด)
         let isPlaying = false;
         const music = document.getElementById('wedding-music');
         const icon = document.getElementById('music-icon');
