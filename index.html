@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation | Laphatrada & Noppharit</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Noto+Sans+Thai:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #b39359;
+            --cream: #fcfaf7;
+            --deep-brown: #4a3b2b;
+        }
+        body {
+            background-color: #f4f1ee;
+            font-family: 'Noto Sans Thai', sans-serif;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+        .serif { font-family: 'Cormorant Garamond', serif; }
+        .script { font-family: 'Great Vibes', cursive; }
+        
+        .main-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        /* Hero Section - ปรับแต่งตามไฟล์ คุณการ์ตูน-Front-Final.png */
+        .hero {
+            height: 90vh;
+            background-image: linear-gradient(to bottom, rgba(255,255,255,0) 40%, rgba(255,255,255,1) 95%), 
+                              url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            padding-bottom: 40px;
+            text-align: center;
+        }
+
+        /* Animation */
+        .fade-up {
+            animation: fadeUp 1.2s ease-out forwards;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Timeline Styles */
+        .timeline-line {
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: #e5e7eb;
+        }
+
+        /* Music Toggle Button */
+        .music-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            background: white;
+            border-radius: 50%;
+            padding: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .music-btn:active { transform: scale(0.9); }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        
+        <!-- ส่วนที่ 1: หน้าปก (อ้างอิงดีไซน์จาก Logo.png และรูปพรีเวดดิ้ง) -->
+        <section class="hero relative overflow-hidden">
+            <div class="z-10 px-6 fade-up">
+                <div class="mb-2">
+                    <span class="script text-6xl text-amber-900 block leading-tight">Laphatrada</span>
+                    <span class="script text-6xl text-amber-900 block -mt-4 ml-10">Noppharit</span>
+                </div>
+                <div class="h-[1px] w-20 bg-amber-800/40 mx-auto my-6"></div>
+                <p class="serif text-xl tracking-[0.3em] text-amber-800 font-medium uppercase">14 JUNE 2026</p>
+            </div>
+        </section>
+
+        <!-- ส่วนที่ 2: ข้อความเชิญและนับถอยหลัง -->
+        <section class="px-8 py-12 text-center bg-white">
+            <div class="mb-8 flex justify-center">
+                <!-- โลโก้ LN อ้างอิงจาก คุณการ์ตูน-Logo-1.png -->
+                <div class="w-24 h-24 border border-amber-200 rounded-full flex items-center justify-center p-2">
+                    <div class="w-full h-full border border-amber-100 rounded-full flex items-center justify-center">
+                        <span class="serif text-4xl text-amber-800 italic">LN</span>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="script text-4xl text-amber-700 mb-4">Save the Date</h2>
+            <p class="text-[11px] uppercase tracking-[0.2em] text-gray-400 mb-10 leading-loose">
+                เรามีความยินดีอย่างยิ่งที่จะเรียนเชิญท่าน<br>ร่วมเป็นเกียรติและร่วมฉลองในงานมงคลสมรส
+            </p>
+
+            <div class="space-y-4 mb-12">
+                <h1 class="serif text-2xl font-bold text-gray-800 tracking-wider uppercase">Laphatrada Sriphuthong</h1>
+                <p class="script text-3xl text-amber-600">&</p>
+                <h1 class="serif text-2xl font-bold text-gray-800 tracking-wider uppercase">Noppharit Rueangrit</h1>
+            </div>
+
+            <div class="bg-stone-50 py-10 px-4 rounded-3xl border border-stone-100 shadow-sm mx-2">
+                <p class="serif text-lg font-bold text-gray-700 tracking-widest uppercase">Sunday 14 June 2026</p>
+                <p class="text-xs text-stone-500 mt-2 font-light">หอประชุม 100 ปี ธัญบุรี (100th Year Thanyaburi Hall)</p>
+                
+                <!-- ระบบนับถอยหลัง -->
+                <div id="countdown" class="flex justify-center gap-6 mt-10">
+                    <div class="text-center">
+                        <span id="days" class="block text-3xl font-bold text-amber-900">00</span>
+                        <span class="text-[10px] uppercase text-gray-400 tracking-widest">Days</span>
+                    </div>
+                    <div class="text-center">
+                        <span id="hours" class="block text-3xl font-bold text-amber-900">00</span>
+                        <span class="text-[10px] uppercase text-gray-400 tracking-widest">Hours</span>
+                    </div>
+                    <div class="text-center">
+                        <span id="minutes" class="block text-3xl font-bold text-amber-900">00</span>
+                        <span class="text-[10px] uppercase text-gray-400 tracking-widest">Mins</span>
+                    </div>
+                    <div class="text-center">
+                        <span id="seconds" class="block text-3xl font-bold text-amber-900 text-amber-600">00</span>
+                        <span class="text-[10px] uppercase text-gray-400 tracking-widest">Secs</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ส่วนที่ 3: กำหนดการ (Timeline) -->
+        <section class="p-10 bg-[#fcfaf7]">
+            <h3 class="serif text-xl text-center mb-12 tracking-[0.4em] text-amber-900 uppercase">Schedule</h3>
+            
+            <div class="relative pl-10 space-y-12">
+                <div class="timeline-line"></div>
+                
+                <div class="relative">
+                    <div class="absolute -left-[30px] top-0 w-5 h-5 rounded-full bg-white border-4 border-amber-200"></div>
+                    <p class="text-xs font-bold text-amber-800">07.09 น.</p>
+                    <p class="text-sm font-medium text-gray-700">พิธีเจริญพระพุทธมนต์ (พิธีสงฆ์)</p>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -left-[30px] top-0 w-5 h-5 rounded-full bg-white border-4 border-amber-200"></div>
+                    <p class="text-xs font-bold text-amber-800">08.09 น.</p>
+                    <p class="text-sm font-medium text-gray-700">พิธีแห่ขันหมาก</p>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -left-[30px] top-0 w-5 h-5 rounded-full bg-white border-4 border-amber-200"></div>
+                    <p class="text-xs font-bold text-amber-800">09.09 น.</p>
+                    <p class="text-sm font-medium text-gray-700">พิธีสวมแหวนหมั้นและพิธีรับไหว้</p>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -left-[30px] top-0 w-5 h-5 rounded-full bg-white border-4 border-amber-200"></div>
+                    <p class="text-xs font-bold text-amber-800">09.49 น.</p>
+                    <p class="text-sm font-medium text-gray-700">พิธีหลั่งน้ำพระพุทธมนต์</p>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -left-[30px] top-0 w-5 h-5 rounded-full bg-white border-4 border-amber-200"></div>
+                    <p class="text-xs font-bold text-amber-800">12.00 น.</p>
+                    <p class="text-sm font-medium text-gray-700">ร่วมรับประทานอาหาร (เลี้ยงฉลอง)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ส่วนที่ 4: ธีมสีและที่ตั้ง -->
+        <section class="p-10 bg-white text-center border-t border-stone-50">
+            <div class="mb-16">
+                <h3 class="serif text-lg mb-8 tracking-widest text-gray-400 uppercase">Dress Code</h3>
+                <div class="flex justify-center gap-5">
+                    <div class="w-12 h-12 rounded-full bg-[#FFF9C4] shadow-md border-2 border-white"></div>
+                    <div class="w-12 h-12 rounded-full bg-[#E1BEE7] shadow-md border-2 border-white"></div>
+                    <div class="w-12 h-12 rounded-full bg-[#F8BBD0] shadow-md border-2 border-white"></div>
+                    <div class="w-12 h-12 rounded-full bg-[#F5E6D3] shadow-md border-2 border-white"></div>
+                </div>
+                <p class="text-[10px] text-gray-400 mt-6 tracking-[0.3em] uppercase">Cream | Purple | Pink | Sand</p>
+            </div>
+
+            <div class="mb-10">
+                <h3 class="serif text-lg mb-4 tracking-widest text-gray-400 uppercase">Venue</h3>
+                <p class="text-sm text-gray-600 leading-relaxed mb-10">
+                    หอประชุม 100 ปี ธัญบุรี<br>
+                    ต.ประชาธิปัตย์ อ.ธัญบุรี จ.ปทุมธานี
+                </p>
+                
+                <!-- ปุ่ม Google Maps -->
+                <a href="https://maps.app.goo.gl/YyR9J4" target="_blank" 
+                   class="inline-flex items-center gap-3 bg-[#4a3b2b] text-white px-12 py-4 rounded-full text-xs font-bold hover:bg-black transition-all shadow-xl active:scale-95">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    OPEN IN GOOGLE MAPS
+                </a>
+            </div>
+
+            <div class="mt-24 opacity-30">
+                <p class="serif italic text-amber-900 text-lg">#CartoonGotVseethelight</p>
+            </div>
+        </section>
+
+        <footer class="py-12 bg-[#f4f1ee] text-center">
+            <p class="text-[9px] text-amber-900/40 uppercase tracking-[0.5em]">L & N Wedding Ceremony 2026</p>
+        </footer>
+    </div>
+
+    <!-- ปุ่มเปิด-ปิดเพลง (ใส่ลิงก์เพลงตัวอย่างไว้ให้) -->
+    <div class="music-btn" onclick="toggleMusic()">
+        <svg id="music-icon" class="w-6 h-6 text-amber-800" fill="currentColor" viewBox="0 0 20 20"><path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 1.12-3 2.5S3.343 19 5 19s3-1.12 3-2.5V8.51l9-1.8v6.604A4.369 4.369 0 0016 13c-1.657 0-3 1.12-3 2.5s1.343 2.5 3 2.5 3-1.12 3-2.5V3z"></path></svg>
+        <audio id="wedding-music" loop>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <script>
+        // ตั้งค่าวันงานสำหรับการนับถอยหลัง
+        const targetDate = new Date("June 14, 2026 07:09:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = String(Math.max(0, days)).padStart(2, '0');
+            document.getElementById("hours").innerText = String(Math.max(0, hours)).padStart(2, '0');
+            document.getElementById("minutes").innerText = String(Math.max(0, minutes)).padStart(2, '0');
+            document.getElementById("seconds").innerText = String(Math.max(0, seconds)).padStart(2, '0');
+
+            if (distance < 0) {
+                document.getElementById("countdown").innerHTML = "<p class='text-amber-800 font-bold serif italic text-xl'>Today is the Special Day!</p>";
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // ฟังก์ชันควบคุมเสียงเพลง
+        let isPlaying = false;
+        const music = document.getElementById('wedding-music');
+        const icon = document.getElementById('music-icon');
+
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                icon.style.opacity = "0.5";
+            } else {
+                music.play();
+                icon.style.opacity = "1";
+            }
+            isPlaying = !isPlaying;
+        }
+    </script>
+</body>
+</html>
